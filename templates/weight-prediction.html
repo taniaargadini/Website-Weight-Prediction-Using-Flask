@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Gender Prediction | Taniaargadini</title>
+</head>
+<body>
+    <!-- component -->
+    <!-- component -->
+    <div class="bg-pink-100 min-h-screen pt-2 font-mono my-16">
+        <div class="container flex mx-auto">
+            <div class="inputs w-full max-w-2xl p-6">
+                <h2 class="text-2xl text-pink-900">Weight Prediction</h2>
+                <form class="mt-6 border-t border-pink-400 pt-4" method="POST" action="">
+                    <div class='flex flex-wrap -mx-3 mb-6'>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-pink-700 text-xs font-bold mb-2'
+                                for='grid-text-3'>Height</label>
+                            <input type="text"
+                                class='appearance-none block w-full bg-white text-pink-700 border border-pink-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-pink-500'
+                                id='grid-text-3' type='text' placeholder='Masukkan Tinggi Badan (cm)'
+                                name="height" required>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-pink-700 text-xs font-bold mb-2'
+                                for='grid-text-4'>Gender</label>
+                                <select name="gender" id="gender" class="appearance-none block w-full bg-white text-pink-700 border border-pink-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-pink-500" required>
+                                    <option value="" disabled selected>Choose</option>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end ">
+                        <button
+                            class="appearance-none bg-pink-200 text-pink-900 px-2 py-1 shadow-sm border border-pink-400 rounded-md hover:bg-pink-300"
+                            type="submit">Prediction</button>
+                    </div>
+                </div>
+            </form>
+            {% if result is defined %}
+            <div class="prediction-result w-full max-w-2xl p-6">
+                <h2 class="text-2xl text-pink-900">Weight Prediction Result</h2>
+                <img class="my-3" src="static/img/male-female.jpg" alt="Male or Female">
+                <p class="mx-auto text-center px-2 py-2 bg-pink-300 rounded rounded-full mt-5">
+                    Your Weight Prediction <b>{{get_gender}}</b> With Height <b>{{get_height}} CM</b> is :
+                </p>
+                <h2 class="mx-auto text-3xl text-center px-2 py-2 bg-pink-300 rounded rounded-full mt-5">
+                     <b>{{result}} KG</b>
+                </h2>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
